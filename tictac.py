@@ -71,7 +71,6 @@ def playturn(player):
             return player
         # or if there was a tie and the board is full
         elif ' ' not in space_dict.values():
-            # print "Aw, that's a tie. Nice playing!"
             return "no one.  :("
         else:
             if player == 'X':
@@ -110,7 +109,7 @@ ready = raw_input("The game ends when someone gets three in a row, or no more mo
 if ready == "n":
     print "No problem. Grab me a byte to eat and come back later?"
 elif ready == "y":
-    print "Oh good; me too."
+    print "Oh good; me too. X goes first. Let's begin!"
     tictactime()
 else:
     print "Hmm. That didn't look like either y or n."
