@@ -1,4 +1,3 @@
-
 def showboard():
     # prints out a sweet board where each box is named with a number/letter
     print "  A   B   C"
