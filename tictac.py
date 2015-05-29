@@ -1,43 +1,43 @@
-def showboard():
-    # prints out a sweet board where each box is named with a number/letter
-    print "  A   B   C"
-    print "1 {a1} | {b1} | {c1}".format(**space_dict)
-    print "  - * - * -"
-    print "2 {a2} | {b2} | {c2}".format(**space_dict)
-    print "  - * - * -"
-    print "3 {a3} | {b3} | {c3}".format(**space_dict)
-
-space_dict = {"a1": " ", "b1": " ", "c1": " ",
+SPACE_DICT = {"a1": " ", "b1": " ", "c1": " ",
               "a2": " ", "b2": " ", "c2": " ",
               "a3": " ", "b3": " ", "c3": " "}
 
+def showboard():
+    # prints out a sweet board where each box is named with a number/letter
+    board = ("  A   B   C\n"
+             "1 {a1} | {b1} | {c1}\n"
+             "  - * - * -\n"
+             "2 {a2} | {b2} | {c2}\n"
+             "  - * - * -\n"
+             "3 {a3} | {b3} | {c3}\n").format(**SPACE_DICT)
+    print board
+
 def tictactime():
-# we start with a blank board
+    '''Start with a blank board, play turns, and announce the winner'''
     showboard()
-    # we'll get the winner back from playturn:
     winner = playturn('X')
     if winner == 'X' or winner == 'O':
-        print "Nice playing! Looks like the winner was " + str(winner) + "."
+        print "Nice playing! Looks like the winner was {0}.".format(winner)
     else:
-        print "Bummer. Looks like the winner was " + str(winner)
+        print "Bummer. Looks like the winner was {0}".format(winner)
 
 def winning():
-    winning_conditions = [space_dict["a1"] == space_dict["b1"] == space_dict["c1"]
-                          and space_dict["a1"] != " ",
-                          space_dict["a2"] == space_dict["b2"] == space_dict["c2"]
-                          and space_dict["a2"] != " ",
-                          space_dict["a3"] == space_dict["b3"] == space_dict["c3"]
-                          and space_dict["a3"] != " ",
-                          space_dict["a1"] == space_dict["a2"] == space_dict["a3"]
-                          and space_dict["a1"] != " ",
-                          space_dict["b1"] == space_dict["b2"] == space_dict["b3"]
-                          and space_dict["b1"] != " ",
-                          space_dict["c1"] == space_dict["c2"] == space_dict["c3"]
-                          and space_dict["c1"] != " ",
-                          space_dict["a1"] == space_dict["b2"] == space_dict["c3"]
-                          and space_dict["a1"] != " ",
-                          space_dict["c1"] == space_dict["b2"] == space_dict["a3"]
-                          and space_dict["c1"] != " "]
+    winning_conditions = [SPACE_DICT["a1"] == SPACE_DICT["b1"] == SPACE_DICT["c1"]
+                          and SPACE_DICT["a1"] != " ",
+                          SPACE_DICT["a2"] == SPACE_DICT["b2"] == SPACE_DICT["c2"]
+                          and SPACE_DICT["a2"] != " ",
+                          SPACE_DICT["a3"] == SPACE_DICT["b3"] == SPACE_DICT["c3"]
+                          and SPACE_DICT["a3"] != " ",
+                          SPACE_DICT["a1"] == SPACE_DICT["a2"] == SPACE_DICT["a3"]
+                          and SPACE_DICT["a1"] != " ",
+                          SPACE_DICT["b1"] == SPACE_DICT["b2"] == SPACE_DICT["b3"]
+                          and SPACE_DICT["b1"] != " ",
+                          SPACE_DICT["c1"] == SPACE_DICT["c2"] == SPACE_DICT["c3"]
+                          and SPACE_DICT["c1"] != " ",
+                          SPACE_DICT["a1"] == SPACE_DICT["b2"] == SPACE_DICT["c3"]
+                          and SPACE_DICT["a1"] != " ",
+                          SPACE_DICT["c1"] == SPACE_DICT["b2"] == SPACE_DICT["a3"]
+                          and SPACE_DICT["c1"] != " "]
     if True in winning_conditions:
         return True
     else:
