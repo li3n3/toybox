@@ -51,26 +51,26 @@ def playturn(player):
     # We expect something like a2, b1, c3
     # either it's a bad input (not a board position)
     # and we ask for something else
-    if turn not in space_dict:
+    if turn not in SPACE_DICT:
         print "Hmm, that's not a board space. Try something like a2 or c3."
         print
         return playturn(player)
     # or it's a good input, but the space is already played, and we ask for
     # something else
-    elif space_dict[turn] == 'X' or space_dict[turn] == 'O':
+    elif SPACE_DICT[turn] == 'X' or SPACE_DICT[turn] == 'O':
         print "That spot's already played. Try another!"
         print
         return playturn(player)
-    # or it's a legit good input, and we assign that value in space_dict
+    # or it's a legit good input, and we assign that value in SPACE_DICT
     else:
-        space_dict[turn] = player
+        SPACE_DICT[turn] = player
         # and we print that on the board
         showboard()
         # and we don't keep playing if winning happened
         if winning():
             return player
         # or if there was a tie and the board is full
-        elif ' ' not in space_dict.values():
+        elif ' ' not in SPACE_DICT.values():
             return "no one.  :("
         else:
             if player == 'X':
