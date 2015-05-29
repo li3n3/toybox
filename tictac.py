@@ -106,9 +106,10 @@ print
 
 ready = raw_input("The game ends when someone gets three in a row, or no more moves are "\
       "possible. Ready? Type y or n.\n")
-if ready == "n":
+ready = ready.lower()
+if ready == "n" or ready == "no":
     print "No problem. Grab me a byte to eat and come back later?"
-elif ready == "y":
+elif ready == "y" or ready == "yes":
     print "Oh good; me too. X goes first. Let's begin!"
     tictactime()
 else:
