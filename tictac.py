@@ -59,11 +59,11 @@ def winning():
 def playturn(player):
     if player == 'X':
       turn = raw_input("What space would you like to play, {0}?\n".format(player))
+      # just in case it's caps
+      turn = turn.lower()
     else:
       print 'Computer player O takes a turn...'
       turn = computer_turns[random.randint(0,8)]
-    # just in case it's caps
-    # turn = turn.lower()
     # We expect something like a2, b1, c3
     # either it's a bad input (not a board position)
     # and we ask for something else
@@ -122,7 +122,7 @@ print
 
 ready = raw_input("The game ends when someone gets three in a row, or no more moves are "\
       "possible. Ready? Type y or n.\n")
-# ask whether it's a human or computer you're playing against, then call tictactime with that arg
+# TODO: ask whether it's a human or computer you're playing against, then call tictactime with that arg
 ready = ready.lower()
 if ready == "n" or ready == "no":
     print "No problem. Grab me a byte to eat and come back later?"
