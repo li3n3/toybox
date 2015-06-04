@@ -16,18 +16,18 @@ def showboard():
              "3 {a3} | {b3} | {c3}\n").format(**SPACE_DICT)
     print board
 
-def tictactime(opponent):
-    '''Start with a blank board, play turns, and announce the winner'''
+def tictactime():
+    '''Start with a blank board, play turns, and announce the winner.
+       For now, we assume that X is human, and O is the computer.'''
     showboard()
-    if opponent == 'person':
-      winner = playturn('X')
-    elif opponent == 'computer':
-      print 'Computers are clever!'
-      # do the computer version that I am writing
-      winner = playturn('player1')
-    else:
-      "Hmm, that didn't look quite right. Try just typing 'computer' or 'person'."
-
+    # if opponent == 'person':
+    #   winner = playturn('X')
+    # elif opponent == 'computer':
+    #   print 'Computers are clever!'
+    #   # do the computer version that I am writing
+    winner = playturn('X')
+    # else:
+    #   "Hmm, that didn't look quite right. Try just typing 'computer' or 'person'."
     if winner == 'X' or winner == 'O':
         print "Nice playing! Looks like the winner was {0}.".format(winner)
     else:
@@ -57,8 +57,11 @@ def winning():
 
 
 def playturn(player):
-    # turn = raw_input("What space would you like to play, {0}?\n".format(player))
-    turn = computer_turns[random.randint(0,8)]
+    if player == 'X':
+      turn = raw_input("What space would you like to play, {0}?\n".format(player))
+    else:
+      print 'Computer player O takes a turn...'
+      turn = computer_turns[random.randint(0,8)]
     # just in case it's caps
     # turn = turn.lower()
     # We expect something like a2, b1, c3
