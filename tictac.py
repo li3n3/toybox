@@ -1,6 +1,10 @@
+import random
+
 SPACE_DICT = {"a1": " ", "b1": " ", "c1": " ",
               "a2": " ", "b2": " ", "c2": " ",
               "a3": " ", "b3": " ", "c3": " "}
+
+computer_turns = ["a1", "b1", "c1", "a2", "b2", "c2", "a3", "b3", "c3"]
 
 def showboard():
     # prints out a sweet board where each box is named with a number/letter
@@ -12,10 +16,18 @@ def showboard():
              "3 {a3} | {b3} | {c3}\n").format(**SPACE_DICT)
     print board
 
-def tictactime():
+def tictactime(opponent):
     '''Start with a blank board, play turns, and announce the winner'''
     showboard()
-    winner = playturn('X')
+    if opponent == 'person':
+      winner = playturn('X')
+    elif opponent == 'computer':
+      print 'Computers are clever!'
+      # do the computer version that I am writing
+      winner = playturn('player1')
+    else:
+      "Hmm, that didn't look quite right. Try just typing 'computer' or 'person'."
+
     if winner == 'X' or winner == 'O':
         print "Nice playing! Looks like the winner was {0}.".format(winner)
     else:
@@ -45,9 +57,10 @@ def winning():
 
 
 def playturn(player):
-    turn = raw_input("What space would you like to play, {0}?\n".format(player))
+    # turn = raw_input("What space would you like to play, {0}?\n".format(player))
+    turn = computer_turns[random.randint(0,8)]
     # just in case it's caps
-    turn = turn.lower()
+    # turn = turn.lower()
     # We expect something like a2, b1, c3
     # either it's a bad input (not a board position)
     # and we ask for something else
@@ -106,6 +119,7 @@ print
 
 ready = raw_input("The game ends when someone gets three in a row, or no more moves are "\
       "possible. Ready? Type y or n.\n")
+# ask whether it's a human or computer you're playing against, then call tictactime with that arg
 ready = ready.lower()
 if ready == "n" or ready == "no":
     print "No problem. Grab me a byte to eat and come back later?"
