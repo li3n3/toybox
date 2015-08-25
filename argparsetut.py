@@ -4,7 +4,8 @@ parser = argparse.ArgumentParser()
 
 parser.add_argument("square", type = int,
                     help = "display a square of a given number")
-parser.add_argument("-v", "--verbosity", help = "increase output verbosity", action = "count")
+parser.add_argument("-v", "--verbosity", help = "increase output verbosity",
+                    action = "count", default = 0)
 
 args = parser.parse_args()
 answer = args.square**2
