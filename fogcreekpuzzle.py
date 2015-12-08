@@ -46,17 +46,29 @@ bigblob = ('epqiiqwdiwgyka_vsqtsujeqqicnhyivo_sigwasmkwgsih_akl_gtnkhgikgveidpmt
           'mnshz_xz')
 
 # make a dictionary to count occurrences of letters
+char_dict = {}
 
 # the dictionary is made by iterating through alphastring; each letter is a key
-
-# format: key is letter (or _), value is count
+# format: key is letter (or _), value is count, initially set to 0
+for char in alphastring:
+    char_dict[char] = 0
 
 # once that's done, iterate through the bigblob
 # for every character, +1 to the corresponding key's value
+for char in bigblob:
+    char_dict[char] += 1
 
 # once that's done, sort the list by values
 # this might help: https://docs.python.org/2/library/functions.html#sorted
 # maybe the 'key' keyword argument could be useful
 # definitely want to use the 'reverse' keyword
+answer_plus_change = sorted(char_dict, key=char_dict.get, reverse=True)
+answer = ''
 
-print bigblob
+for char in answer_plus_change:
+    if char == '_':
+       break
+    else:
+        answer += char
+
+print answer
