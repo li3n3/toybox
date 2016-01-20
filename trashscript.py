@@ -6,7 +6,7 @@ def round_sum(a, b, c):
 
 def round10(num):
     if str(num)[-1] < 5:
-        remove = num % 5
+        remove = int(str(num)[-1])
         num -= remove
         print "I removed {} from the original num nums.".format(remove)
     else:
