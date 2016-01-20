@@ -1,18 +1,29 @@
-""" For this problem, we'll round an int value up to the next multiple of 10 if its rightmost digit is 5 or more, so 15 rounds up to 20. Alternately, round down to the previous multiple of 10 if its rightmost digit is less than 5, so 12 rounds down to 10. Given 3 ints, a b c, return the sum of their rounded values. To avoid code repetition, write a separate helper "def round10(num):" and call it 3 times. Write the helper entirely below and at the same indent level as round_sum().
+"""
+Given three ints, a b c, return True if one of b or c is "close" (differing from
+a by at most 1), while the other is "far", differing from both other values by 2
+or more. Note: abs(num) computes the absolute value of a number.
 """
 
-def round_sum(a, b, c):
-    return round10(a) + round10(b) + round10(c)
-
-def round10(num):
-    if int(str(num)[-1]) < 5:
-        remove = int(str(num)[-1])
-        num -= remove
+def close_far(a, b, c):
+    if abs(b - a) < 2:
+        bclose = True
     else:
-        if int(str(num)[-1]) == 5:
-            add = 5
-        else:
-            add = 5 - (num % 5)
-        num += add
+        bclose = False
+    if abs(b - a) >= 2 and abs(b - c) >= 2:
+        bfar = True
+    else:
+        bfar = False
 
-    return num
+    if abs(c - a) < 2:
+        cclose = True
+    else:
+        cclose = False
+    if abs(c - a) >= 2 and abs(c - b) >=2:
+        cfar = True
+    else:
+        cfar = False
+
+    if (bclose == True and cfar == True) or (bfar == True and cclose == True):
+        return True
+    else:
+        return False
