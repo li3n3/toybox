@@ -5,16 +5,14 @@ def round_sum(a, b, c):
     return round10(a) + round10(b) + round10(c)
 
 def round10(num):
-    if str(num)[-1] < 5:
+    if int(str(num)[-1]) < 5:
         remove = int(str(num)[-1])
         num -= remove
-        print "I removed {} from the original num nums.".format(remove)
     else:
-        if str(num)[-1] == 5:
+        if int(str(num)[-1]) == 5:
             add = 5
         else:
             add = 5 - (num % 5)
         num += add
-        print "I added {} to the original num nums.".format(add)
 
     return num
