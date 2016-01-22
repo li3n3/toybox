@@ -1,14 +1,13 @@
-""" Given 2 int values, return True if one is negative and one is positive. Except if the parameter "negative" is True, then return True only if both are negative.
+""" Given two strings, return True if either of the strings appears at the very
+end of the other string, ignoring upper/lower case differences (in other words,
+the computation should not be "case sensitive"). Note: s.lower() returns the
+lowercase version of a string.
 """
 
-def pos_neg(a, b, negative):
-    if negative:
-        if a < 0 and b < 0:
-            return True
-        else:
-            return False
+def end_other(a, b):
+    if len(a) == len(b):
+        return a.lower() == b.lower()
+    elif len(a) < len(b):
+        return a.lower() == b[-(len(a)):].lower()
     else:
-        if (a < 0 and b > 0) or (b < 0 and a > 0):
-            return True
-        else:
-            return False
+        return b.lower() == a[-(len(b)):].lower()
