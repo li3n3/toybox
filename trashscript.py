@@ -1,12 +1,21 @@
 """
-Return the number of times that the string "hi" appears anywhere in the given
-string.
+Return True if the string "cat" and "dog" appear the same number of times in the
+given string.
 """
 
-def count_hi(str):
-    count = 0
-    for index in range(0, len(str) - 1):
-        if str[index] + str[index + 1] == 'hi':
-            count += 1
+def cat_dog(str):
+    catcount = 0
+    dogcount = 0
+    # iterate through each character
+    for index in range(0, len(str) - 2):
+        # if the char, plus the two after, == cat
+        if str[index:index+3] == 'cat':
+            # catcount goes up one
+            catcount += 1
+        # elif the char, plus the two after, == dog
+        elif str[index:index+3] == 'dog':
+            # dogcount goes up one
+            dogcount += 1
 
-    return count
+    # return the truth of whether catcount == dogcount
+    return catcount == dogcount
