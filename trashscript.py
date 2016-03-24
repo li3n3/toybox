@@ -1,21 +1,18 @@
+def point_in_rectangle(point, rectangle):
+"""point given as [px, py]
+   rectangle lower-left and upper-right given as [[llx, lly], [urx, ury]]
 """
-Return True if the string "cat" and "dog" appear the same number of times in the
-given string.
-"""
+    # get the point's coordinates into better variables
+    px = point[0]
+    py = point[1]
 
-def cat_dog(str):
-    catcount = 0
-    dogcount = 0
-    # iterate through each character
-    for index in range(0, len(str) - 2):
-        # if the char, plus the two after, == cat
-        if str[index:index+3] == 'cat':
-            # catcount goes up one
-            catcount += 1
-        # elif the char, plus the two after, == dog
-        elif str[index:index+3] == 'dog':
-            # dogcount goes up one
-            dogcount += 1
+    # do the same for the rectangle
+    llx = rectangle[0][0]
+    lly = rectangle[0][1]
+    urx = rectangle[1][0]
+    ury = rectangle[1][1]
 
-    # return the truth of whether catcount == dogcount
-    return catcount == dogcount
+    if (px >= llx and px <= urx) and (py >= lly and py <= ury):
+        return True
+    else:
+        return False
