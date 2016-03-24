@@ -1,12 +1,14 @@
 {
-    "yesterday": ["met with Angelo the recruiter",
-                 "went to the coffeeshop",
-                 "rescheduled plans with CJ"],
-
-    "today"    : ["sign up for workshop at Alliance Francaise",
-                  "write cover letter for Puppet internship",
-                  "send resume to Angelo"],
-
+    "yesterday": [
+        "met with Angelo the recruiter",
+         "went to the coffeeshop",
+         "rescheduled plans with CJ"
+    ],
+    "today": [
+        "sign up for workshop at Alliance Francaise",
+        "write cover letter for Puppet internship",
+        "send resume to Angelo"
+    ],
     "blockers" : ""
 
 }
