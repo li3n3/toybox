@@ -1,13 +1,22 @@
-# Return the "centered" average of an array of ints, which we'll say is the mean
-# average of the values, except ignoring the largest and smallest values in the
-# array. If there are multiple copies of the smallest value, ignore just one
-# copy, and likewise for the largest value. Use int division to produce the final
-# average. You may assume that the array is length 3 or more.
+# Return the sum of the numbers in the array, except ignore sections of numbers
+# starting with a 6 and extending to the next 7 (every 6 will be followed by at
+# least one 7). Return 0 for no numbers.
 
-def centered_average(nums):
-    nums.sort()
-    list_without_ends = nums[1:-1]
+def sum67(nums):
     sum = 0
-    for num in list_without_ends:
-        sum += num
-    return sum / len(list_without_ends)
+    i = 0
+    for i in xrange(len(nums)):
+        if nums[i] == 6:
+            # don't add anything to sum
+            # do increment the iterator
+            i += 1
+            # check if the next number is seven
+            # keep checking until the next number is 7
+            while nums[i] != 7:
+                i += 1
+            # then break out of this loop
+            i += 1
+            break
+        else:
+            sum += nums[i]
+    return sum
