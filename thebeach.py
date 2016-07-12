@@ -1,9 +1,13 @@
-# Given an array of ints, return True if the array contains a 2 next to a 2
-# somewhere.
+# Return the "centered" average of an array of ints, which we'll say is the mean
+# average of the values, except ignoring the largest and smallest values in the
+# array. If there are multiple copies of the smallest value, ignore just one
+# copy, and likewise for the largest value. Use int division to produce the final
+# average. You may assume that the array is length 3 or more.
 
-def has22(nums):
-    for i in range (1, len(nums)):
-        if nums[i-1] == 2 and nums[i] == 2:
-            return True
-    # this will only happen if the if statement above is never True
-    return False
+def centered_average(nums):
+    nums.sort()
+    list_without_ends = nums[1:-1]
+    sum = 0
+    for num in list_without_ends:
+        sum += num
+    return sum / len(list_without_ends)
