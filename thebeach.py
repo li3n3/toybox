@@ -1,26 +1,23 @@
-# Return the sum of the numbers in the array, except ignore sections of numbers
-# starting with a 6 and extending to the next 7 (every 6 will be followed by at
-# least one 7). Return 0 for no numbers.
+# Given an array length 1 or more of ints, return the difference between the
+# largest and smallest values in the array. Note: the built-in min(v1, v2) and
+# max(v1, v2) functions return the smaller or larger of two values.
 
-def sum67(nums):
-    sum = 0
-    i = 0
-    while i < len(nums):
-        if nums[i] != 6:
-            sum += nums[i]
-            i += 1
-            print "I added the number then incremented i"
-        else:
-            # don't add anything to sum
-            # do increment the iterator
-            i += 1
-            print "I incremented a thing because the number was 6"
-            # check if the next number is seven
-            # keep checking until the next number is 7
-            while nums[i] != 7:
-                i += 1
-                print "it's still not 7; I incremented the counter"
-            # then increment i to get past the 7, and break out of this loop
-            i += 1
-            print "I incremented the counter and now we'll break"
-    return sum
+minmaxdiff([4, 2, 1, 6, 7])
+[7, 6, 8, 5]
+
+def minmaxdiff(nums):
+    # could define smallest/largest with temp values, but that seems sloppier
+    if len(nums) <= 2:
+        # latter part looks awkward! but it returns an answer if length is 1
+        return abs(nums[0] - nums[-1])
+    else:
+        smallest = min(nums[0], nums[1])
+        largest = max(nums[0], nums[1])
+        for i in range(2, len(nums)):
+            if nums[i] < smallest:
+                smallest = nums[i]
+            elif nums[i] > largest:
+                largest = nums[i]
+            # else, pass, but that's just noise
+        return largest - smallest
+
